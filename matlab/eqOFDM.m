@@ -2,7 +2,8 @@ genOFDMPacket;
 % Add random offset
 offset = randi([0 1e2]); y = [zeros(offset,1);y]; 
 %% Equalization Example
-r = awgn(y(offset+1:end),15,'measured'); Fs = 1e6;
+r = awgn(y(offset+1:end),15,'measured');
+Fs = 1e6;
 pfOffset = comm.PhaseFrequencyOffset('SampleRate',Fs,...
     'FrequencyOffset',Fs*0.001);
 r = pfOffset(r);
